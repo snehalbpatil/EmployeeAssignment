@@ -22,12 +22,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 
 class EmployeeListAdapter(
-    coursesArrayList: ArrayList<Employee>,
+    empArrayList: ArrayList<Employee>,
     private var context: Context
 ) :
     RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
     // creating variables for our ArrayList and context
-    private var coursesArrayList: ArrayList<Employee> = coursesArrayList
+    private var empArrayList: ArrayList<Employee> = empArrayList
     private lateinit var  db: FirebaseFirestore
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // passing our layout file for displaying our card item
@@ -38,67 +38,56 @@ class EmployeeListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // setting data to our text views from our modal class.
-        val courses: Employee = coursesArrayList[position]
-        holder.courseNameTV.setText(courses.name)
-        holder.courseDurationTV.setText(courses.designation)
-        holder.courseDescTV.setText(courses.dob)
+        val emp: Employee = empArrayList[position]
+        holder.tvName.setText(emp.name)
+        holder.tvEmpDesignation.setText(emp.designation)
+        holder.tvEmpDOB.setText(emp.dob)
         holder.ivUpdate.setOnClickListener {
             val intent = Intent(context, EmployeeEditDetailsActivity::class.java)
-            intent.putExtra("Employee",courses)
-           /* intent.putExtra("empDes",courses.designation)
-            intent.putExtra("empDob",courses.dob)
-            intent.putExtra("empId",courses.id)
-           */ context.startActivity(intent)
+            intent.putExtra("Employee",emp)
+            context.startActivity(intent)
         }
         holder.ivDelete.setOnClickListener {
-            showDialog(courses,position)
-             /* val backgroundExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
+            showDialog(emp,position)
 
-            if (context is EmployeeListActivity) {
-                (context as EmployeeListActivity).deleteCollection(db.collection("Employee"),backgroundExecutor)
-            }*/
         }
     }
     // method for filtering our recyclerview items.
     fun filterList(filterlist: ArrayList<Employee>) {
         // below line is to add our filtered
         // list in our course array list.
-        coursesArrayList = filterlist
+        empArrayList = filterlist
         // below line is to notify our adapter
         // as change in recycler view data.
         notifyDataSetChanged()
     }
     override fun getItemCount(): Int {
         // returning the size of our array list.
-        return coursesArrayList.size
+        return empArrayList.size
     }
 
      class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // creating variables for our text views.
         // initializing our text views.
-         val courseNameTV: TextView = itemView.findViewById<TextView>(R.id.tvName)
-        val courseDurationTV: TextView = itemView.findViewById<TextView>(R.id.tvEmpDesignation)
-        val courseDescTV: TextView = itemView.findViewById<TextView>(R.id.tvEmpDOB)
+         val tvName: TextView = itemView.findViewById<TextView>(R.id.tvName)
+        val tvEmpDesignation: TextView = itemView.findViewById<TextView>(R.id.tvEmpDesignation)
+        val tvEmpDOB: TextView = itemView.findViewById<TextView>(R.id.tvEmpDOB)
         val ivDelete:ImageView=itemView.findViewById<ImageView>(R.id.ivDelete)
         val ivUpdate:ImageView=itemView.findViewById<ImageView>(R.id.ivUpdate)
     }
-    private fun showDialog(courses:Employee,position: Int) {
+    private fun showDialog(emp:Employee,position: Int) {
         val dialog = Dialog(context)
         dialog.getWindow()?.setBackgroundDrawableResource(R.drawable.delete_dialog_bg)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.delete_alert_dialog)
-
-        val body = dialog.findViewById(R.id.tvTitle) as TextView
-        //body.text = title
-
         val yesBtn = dialog.findViewById(R.id.btnYes) as Button
         yesBtn.setOnClickListener {
             db.collection("Employee")
-                .document(courses.id)
+                .document(emp.id)
                 .delete()
                 .addOnSuccessListener(OnSuccessListener<Void?> { // Remove the deleted item from the list
-                    coursesArrayList.removeAt(position)
+                    empArrayList.removeAt(position)
                     notifyDataSetChanged()                // Notify the adapter that the data has changed
                     dialog.dismiss()
                 }).addOnFailureListener(OnFailureListener {

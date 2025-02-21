@@ -183,4 +183,9 @@ fun callDetailsActivity(emp:Employee){
     intent.putExtra("empName",emp.name)
     startActivity(intent)
 }
+
+    override fun onResume() {
+        super.onResume()
+        employeeListAdapter?.notifyDataSetChanged()
+    }
 }

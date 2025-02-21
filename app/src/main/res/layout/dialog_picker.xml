@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/ll"
-    android:background="@drawable/datepickerbg">
+    android:background="@drawable/delete_dialog_bg">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -17,11 +17,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/datePicker"
-        android:background="@drawable/datepickerbg"
+        android:background="@drawable/delete_dialog_bg"
         android:headerBackground="@drawable/btn_bg"
         android:layout_gravity="center_horizontal"
         android:headerDayOfMonthTextAppearance="@null"
         android:calendarViewShown="false"
+        android:dayOfWeekTextAppearance="@color/red"
+
         />
 
     <Button

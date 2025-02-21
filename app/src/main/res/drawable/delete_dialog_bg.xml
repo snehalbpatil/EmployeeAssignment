@@ -4,9 +4,9 @@
     android:shape="rectangle"
     android:padding="10dp">
 
-    <solid android:color="@color/dialog_bg" />
+    <solid android:color="#17182A" />
     <stroke android:width="1dp"
-        android:color="@color/profilelist_border"/>
+        android:color="#1C2335"/>
     <corners
        android:radius="30dp" />
 </shape>
