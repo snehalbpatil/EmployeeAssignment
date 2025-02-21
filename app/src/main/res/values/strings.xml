@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ProfileAssignment</string>
+    <string name="str_username">User Name</string>
+    <string name="str_designation">Designation</string>
+    <string name="str_dateofbirth">DOB</string>
+    <string name="str_submit">Submit</string>
+    <string name="welcome_txt">Welcome back! </string>
+    <string name="usename_txt">Sandy Chungus</string>
+</resources>

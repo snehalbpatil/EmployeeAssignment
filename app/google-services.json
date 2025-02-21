@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "489757412093",
+    "project_id": "profileassignment-38165",
+    "storage_bucket": "profileassignment-38165.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489757412093:android:8f6cdc08ba3e95b7468c94",
+        "android_client_info": {
+          "package_name": "com.example.profileassignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYdyccxN9wzsVUzILVyoVSRtgPVw_nIO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="profile_bg">#19173D</color>
+    <color name="profile_ed_border">#00FFFFFF</color>
+    <color name="username_hint">#66FFFFFF</color>
+    <color name="btn_color">#80FFFFFF</color>
+    <color name="btn_txt_color">#CCFFFFFF</color>
+    <color name="profilelist_bg">#4DFFFFFF</color>
+    <color name="profilelist_border">#80FFFFFF</color>
+    <color name="red">#F04D23</color>
+    <color name="app_background">#00000080</color>
+    <color name="dialog_bg">#33FFFFFF</color>
+    <color name="dialog_txt">#FFFFFFDE</color>
+
+</resources>
