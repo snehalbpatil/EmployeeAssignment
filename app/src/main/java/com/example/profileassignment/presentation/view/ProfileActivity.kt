@@ -49,6 +49,9 @@ class ProfileActivity : AppCompatActivity(), ChooseDate.DateListener {
         binding.btnSubmit.setOnClickListener {
             addEmployeeData()
         }
+        binding.ivBackArrow.setOnClickListener {
+            finish()
+        }
         observer()
     }
 
@@ -106,6 +109,11 @@ class ProfileActivity : AppCompatActivity(), ChooseDate.DateListener {
 
         var selectedDate = day.toString() + "/" + month.toString() + "/" + year.toString()
         binding.EvDateOfBirth.setText(selectedDate.toString())
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }
 /*created for firebase storage private fun SelectImage() {

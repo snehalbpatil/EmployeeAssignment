@@ -149,21 +149,6 @@ class EmployeeListActivity : AppCompatActivity() {
 
     }
 
-    fun itemDelete(doc: DocumentSnapshot) {
-        db.collection("Employee").document(doc.id).delete()
-    }
-
-    fun deleteRecord(position: Int,emp:Employee){
-        //Delete user using delete() method
-        db!!.collection("Employee").document(emp.id).delete()
-            .addOnSuccessListener { Toast.makeText(applicationContext, "Successfully deleted user", Toast.LENGTH_SHORT).show()
-                employeeListAdapter?.notifyItemChanged(position,emp)
-            employeeListAdapter?.notifyDataSetChanged()}
-            .addOnFailureListener { Toast.makeText(applicationContext, "Unable to delete user", Toast.LENGTH_SHORT).show() }
-
-    }
-
-
 
     private fun filter(text: String) {
         val filteredlist: ArrayList<Employee> = ArrayList()
@@ -187,5 +172,6 @@ fun callDetailsActivity(emp:Employee){
     override fun onResume() {
         super.onResume()
         employeeListAdapter?.notifyDataSetChanged()
+      //  binding.idPBLoading.visibility=View.VISIBLE
     }
 }

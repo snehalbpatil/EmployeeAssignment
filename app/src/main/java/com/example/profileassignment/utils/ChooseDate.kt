@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import com.example.profileassignment.R
 import com.example.profileassignment.presentation.view.ProfileActivity
@@ -17,7 +19,7 @@ import com.example.profileassignment.presentation.view.ProfileActivity
 class ChooseDate : DialogFragment(), View.OnClickListener {
     private var datePicker: DatePicker? = null
     private var acceptButton: Button? = null
-    private var ll:LinearLayout?=null
+    //private var ll:LinearLayout?=null
 
     private var isDateSetted = false
     private var year = 0
@@ -41,10 +43,11 @@ context=requireActivity()
 
         datePicker = rootView.findViewById(com.example.profileassignment.R.id.datePicker) as DatePicker
         acceptButton = rootView.findViewById(com.example.profileassignment.R.id.buttonAccept)
-        ll=rootView.rootView.findViewById(com.example.profileassignment.R.id.ll)
+       // ll=rootView.rootView.findViewById(com.example.profileassignment.R.id.ll)
         acceptButton!!.setOnClickListener(this)
-        //setStyle(DialogFragment.STYLE_NO_TITLE, R.style.UserDialog);
-       // ll?.getForeground()?.setAlpha(0);
+        // remove background dim
+
+        // ll?.getForeground()?.setAlpha(0);
         acceptButton?.background=resources.getDrawable(R.drawable.picker_btn_bg)
 
 
